@@ -33,9 +33,11 @@ public class TeamStandingService {
 			TeamStanding teamStanding = getStandingDetails(league.getLeague_id(),
 					teamName);
 			if(null != teamStanding)
-				prepareData(teamStanding, countryName);
+				prepareData(teamStanding, country);
 			}
 		}
+		else
+			teamStandingDto = null;
 		return teamStandingDto;
 	}
 	
@@ -87,9 +89,9 @@ public class TeamStandingService {
 		return team;
 	}
 	
-	public TeamStandingDto prepareData(TeamStanding teamStanding, String countryName)
+	public TeamStandingDto prepareData(TeamStanding teamStanding,Country country)
 	{
-		teamStandingDto.setCountry(teamStanding.getCountry_id() + "-" + countryName);
+		teamStandingDto.setCountry(country.getCountry_id() + "-" + country.getCountry_name());
 		teamStandingDto.setLeague(teamStanding.getLeague_id() + "-" + teamStanding.getLeague_name());
 		teamStandingDto.setTeam(teamStanding.getTeam_id() + "-" + teamStanding.getTeam_name());
 		teamStandingDto.setOverallStanding(teamStanding.getOverall_league_position());

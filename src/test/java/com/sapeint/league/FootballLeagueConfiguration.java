@@ -28,9 +28,7 @@ import com.sapient.league.FootballLeagueApplication;
 import com.sapient.league.client.FootballRestTemplate;
 import com.sapient.league.service.TeamStandingService;
 
-@SpringBootTest(classes=FootballLeagueConfiguration.class )
-@WebAppConfiguration
-//@ContextConfiguration(classes=WebFluxConfig.class)
+@SpringBootTest(classes=FootballLeagueApplication.class )
 public class FootballLeagueConfiguration {
 	 public MockMvc mvc;
 	
